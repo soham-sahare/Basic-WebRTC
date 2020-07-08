@@ -30,7 +30,6 @@ gobtn.onclick = () => {
         socket.emit("create or join", roomnumber)
         selectedroom.style.display = "none"
         roomdiv.style.display = "flex"
-        share.style.display = "block"
     }
 }
 
@@ -50,6 +49,7 @@ socket.on('joined', room => {
 
     navigator.mediaDevices.getUserMedia(constraints)
         .then(stream => {
+            console.log("asbduasbdu")
             localstream = stream
             localVideo.srcObject = stream
             socket.emit('ready', roomnumber)
