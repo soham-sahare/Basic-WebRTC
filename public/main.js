@@ -11,9 +11,8 @@ const socket = io()
 
 const iceServers = {
     'iceServer': [
-        {'urls': 'stun:stun.services.mozilla.com'},
         {'urls': 'stun:stun.l.google.com:19302'},
-        {'urls': 'stun:stun.services.mozilla.com:3478'}
+        {'urls': 'stun:stun.services.mozilla.com'}
     ]
 }
 
@@ -31,6 +30,7 @@ gobtn.onclick = () => {
         socket.emit("create or join", roomnumber)
         selectedroom.style.display = "none"
         roomdiv.style.display = "flex"
+        share.style.display = "block"
     }
 }
 
@@ -42,7 +42,7 @@ socket.on('created', room => {
             isCaller = true
         })
         .catch(err => {
-            alert("Error occured ", err)
+            console.log("Error occured :", err)
         })
 })
 
@@ -55,7 +55,7 @@ socket.on('joined', room => {
             socket.emit('ready', roomnumber)
         })
         .catch(err => {
-            alert("Error occured ",err)
+            console.log("Error occured :",err)
         })
 })
 
@@ -78,7 +78,7 @@ socket.on('ready', () => {
                 })
             })
             .catch(err => {
-                alert("Error occured ",err)
+                console.log("Error occured :",err)
             })
     }
 })
@@ -103,7 +103,7 @@ socket.on('offer', sdp => {
                 })
             })
             .catch(err => {
-                alert("Error occured :",err)
+                console.log("Error occured :",err)
             })
     }
 })
