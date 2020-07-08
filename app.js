@@ -8,7 +8,7 @@ app.use(express.static('public'))
 
 http.listen(port, () => {
   console.log("Listening on Port :",port)
-  console.log("http://localhost:3000")
+  console.log("http://localhost:"+port)
 })
 
 io.on('connection', socket => {

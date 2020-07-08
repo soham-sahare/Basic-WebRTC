@@ -11,8 +11,9 @@ const socket = io()
 
 const iceServers = {
     'iceServer': [
+        {'urls': 'stun:stun.services.mozilla.com'},
         {'urls': 'stun:stun.l.google.com:19302'},
-        {'urls': 'stun:stun.services.mozilla.com'}
+        {'urls': 'stun:stun.services.mozilla.com:3478'}
     ]
 }
 
@@ -41,7 +42,7 @@ socket.on('created', room => {
             isCaller = true
         })
         .catch(err => {
-            alert("Error occured :", err)
+            alert("Error occured ", err)
         })
 })
 
@@ -54,7 +55,7 @@ socket.on('joined', room => {
             socket.emit('ready', roomnumber)
         })
         .catch(err => {
-            alert("Error occured :",err)
+            alert("Error occured ",err)
         })
 })
 
@@ -77,7 +78,7 @@ socket.on('ready', () => {
                 })
             })
             .catch(err => {
-                alert("Error occured :",err)
+                alert("Error occured ",err)
             })
     }
 })

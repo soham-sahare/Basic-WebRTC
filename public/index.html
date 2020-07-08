@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebRTC</title>
-    <style>
-        #room{
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-        #localVideo, #remoteVideo{
-            margin: 10px;
-        }
-    </style>
 </head>
 <body>
 
@@ -28,9 +18,10 @@
 
     <div id="room" style="display: none;">
         <video autoplay id="localVideo" muted></video>
-        <video autoplay id="remoteVideo"></video>
+        <video autoplay is="remoteVideo"></video>
     </div>
 
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="main.js"></script>
 
